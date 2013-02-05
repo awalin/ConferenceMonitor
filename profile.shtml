@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Future of Information Alliance</title>
+<meta name="keywords" content="FIA, future, information, umd, umcp" />
+
+<link rel="stylesheet" type="text/css" href="/lib/jquery-ui/css/smoothness/jquery-ui-1.8.16.custom.css" />
+<link rel="stylesheet" type="text/css" href="/lib/jquery.uploadify/uploadify.css" />
+<link rel="stylesheet" type="text/css" href="/lib/SpryAssets/SpryMenuBarVertical.css" />
+<link rel="stylesheet" type="text/css" href="/styles/FIAmain.css?version=201201201054" />
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/styles/IEhacks.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" media="print" href="/styles/print.css?version=201201201054" />
+
+<script type="text/javascript" src="/lib/jquery-1.6.4.min.js"></script>
+<script text="text/javascript" src="/lib/jquery-ui/js/jquery-ui-1.8.16.custom.min-patched.js"></script>
+<!--[if IE]><script type="text/javascript" src="/lib/excanvas_r3/excanvas.js" charset="utf-8"></script><![endif]-->
+<script type="text/javascript" src="/lib/jquery.bt.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/lib/jquery.uploadify/swfobject.js"></script>
+<script type="text/javascript" src="/lib/jquery.uploadify/jquery.uploadify.v2.1.4.js"></script>
+<script type="text/javascript" src="/lib/jquery.getUrlParam.js"></script>
+
+<script type="text/javascript" src="/lib/SpryAssets/SpryMenuBar.js"></script>
+<script type="text/javascript" src="/lib/fiadata.js?version=201201201054"></script>
+<script type="text/javascript" src="/lib/fia.js?version=201201201054"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+        $('#tabs').tabs();
+        var tab = $(document).getUrlParam('tab');
+        var tabIndex = getTabIndex(tab);
+        $('#tabs').tabs('select', tabIndex);
+});
+
+function updatePage(data) {
+	showProfile(data)
+}
+
+function updatePageAfterSaveProfile(data) {
+	updatePage(data);
+}
+
+function showProfile(data) {
+        if (isMemberLoggedIn(data)) {
+                $('#tabs').show();
+                var selectedTab = $('#tabs').tabs("option", "selected");
+                writeProfileForm('#profile', true);
+                updateProfile(data);
+                var userEvents = findUserEvents(data, FIA_EVENTS);
+                writeEventList('#events', userEvents, true);
+        }
+	else {
+        	var tab = $(document).getUrlParam('tab');
+		if (tab=="event") {
+        		$('#warning-message').html('<p>You must <a href="'+getLoginUrl()+'">login</a> to view your upcoming events.</p>');
+		}
+		else {
+        		$('#warning-message').html('<p>You must <a href="'+getLoginUrl()+'">login</a> to view and edit your profile.</p>');
+		}
+	}
+}
+
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26395488-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+<div id="newprofile-dialog" title="Join FIA"></div>
+
+<div class="container">
+
+<div class="leftbar" style="float: left">
+<a href="/index.shtml"><img src="/images/FIA120px.png" alt="FIA" style="width:212px; height:120px; border:none"></a>
+<div style="margin-top: 25px"><!--#include virtual="/includes/leftbar.html"--></div>
+</div>
+
+<div class="rightarea">
+<div class="navbar" style="float:left; margin-top:120px"><!--#include virtual="/includes/menu.html"--></div>
+
+<div class="content" style="float:left; background:white">
+<a href="/index.shtml"><img src="/images/FIA_nball2_Logo.png" alt="The Future of Information Alliance @ the University of Maryland" style="width:642px; height:120px;"></a>
+<div style="margin-top: 25px">
+<div id="warning-message"></div>
+<div id="tabs" style="display:none">
+<ul>
+<li><a href="#tabs-1">My Profile</a></li>
+<li><a href="#tabs-2">My Events</a></li>
+</ul>
+
+<div id="tabs-1">
+<div id="profile" style="border:none; margin:0px; padding:0px"></div>
+</div>
+
+<div id="tabs-2">
+<h2>Upcoming Events</h2>
+<div id="events"></div>
+<a href="/events">All Upcoming Events &raquo;</a>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<!--#include virtual="/includes/footer.html"-->
+
+</div>
+</body>
+</html>

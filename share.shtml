@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Future of Information Alliance</title>
+<meta name="keywords" content="FIA, future, information, umd, umcp" />
+
+<link rel="stylesheet" type="text/css" href="/lib/jquery-ui/css/smoothness/jquery-ui-1.8.16.custom.css" />
+<link rel="stylesheet" type="text/css" href="/lib/jquery.uploadify/uploadify.css" />
+<link rel="stylesheet" type="text/css" href="/lib/SpryAssets/SpryMenuBarVertical.css" />
+<link rel="stylesheet" type="text/css" href="/styles/FIAmain.css?version=201201201054" />
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/styles/IEhacks.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" media="print" href="/styles/print.css?version=201201201054" />
+
+<script type="text/javascript" src="/lib/jquery-1.6.4.min.js"></script>
+<script text="text/javascript" src="/lib/jquery-ui/js/jquery-ui-1.8.16.custom.min-patched.js"></script>
+<!--[if IE]><script type="text/javascript" src="/lib/excanvas_r3/excanvas.js" charset="utf-8"></script><![endif]-->
+<script type="text/javascript" src="/lib/jquery.bt.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/lib/jquery.uploadify/swfobject.js"></script>
+<script type="text/javascript" src="/lib/jquery.uploadify/jquery.uploadify.v2.1.4.js"></script>
+<script type="text/javascript" src="/lib/jquery.getUrlParam.js"></script>
+
+<script type="text/javascript" src="/lib/SpryAssets/SpryMenuBar.js"></script>
+<script type="text/javascript" src="/lib/fiadata.js?version=201201201054"></script>
+<script type="text/javascript" src="/lib/fia.js?version=201201201054"></script>
+
+<link type="text/css" rel="stylesheet" href="/lib/umd.tweets/tweets.css" />
+<script type="text/javascript" src="/lib/jquery.timeago.js"></script>
+<script type="text/javascript" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script type="text/javascript" src="/lib/umd.tweets/tweets.js"></script>
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	updateButtonHtml();
+	$('input[name=buttonsize]').change(function() {
+		updateButtonHtml();
+	});
+        return false;
+});
+
+function updateButtonHtml() {
+	var buttonSize = $('input[name=buttonsize]:checked').val();
+	var imageFilename = "fia-badge-small.png";
+	if (parseInt(buttonSize)>35) imageFilename = "fia-badge-large.png";
+	var html = '<a href="http://www.fia.umd.edu" target="_blank"><img src="http://www.fia.umd.edu/images/'+imageFilename+'" alt="FIA" title="The Future of Information Alliance @ UMD" style="width:'+buttonSize+'px; height:'+buttonSize+'px" /></a>';
+	$('#buttonhtml').text(html);
+}
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26395488-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+<div id="newprofile-dialog" title="Join FIA"></div>
+
+<div class="container">
+
+<div class="leftbar" style="float: left">
+<a href="/index.shtml"><img src="/images/FIA120px.png" alt="FIA" style="width:212px; height:120px; border:none"></a>
+<div style="margin-top: 25px"><!--#include virtual="/includes/leftbar.html"--></div>
+</div>
+
+<div class="rightarea">
+<div class="navbar" style="float:left; margin-top:120px"><!--#include virtual="/includes/menu.html"--></div>
+
+<div class="content" style="float:left; background:white">
+<a href="/index.shtml"><img src="/images/FIA_nball2_Logo.png" alt="The Future of Information Alliance @ the University of Maryland" style="width:642px; height:120px;"></a>
+<div style="margin-top: 25px">
+<h1>FIA Button</h1>
+<p>Add the FIA button to your website to help us spread the word.</p>
+<ol style="margin-left:10px; padding-left:10px">
+<li>
+<p class="smallspaceafter">Select a button.</p>
+<table>
+<tr>
+<td style="vertical-align:top; align:center; text-align:center; padding-right:5px">
+<input type="radio" name="buttonsize" value="24" checked><br/>
+<a href="http://www.fia.umd.edu" target="_blank"><img src="/images/fia-badge-small.png" alt="FIA" title="The Future of Information Alliance @ UMD" style="width:24px; height:24px" /></a><br/>
+<p>24px</p>
+</td>
+<td style="vertical-align:top; align:center; text-align:center; padding-right:5px">
+<input type="radio" name="buttonsize" value="35"><br/>
+<a href="http://www.fia.umd.edu" target="_blank"><img src="/images/fia-badge-small.png" alt="FIA" title="The Future of Information Alliance @ UMD" style="width:35px; height:35px" /></a><br/>
+<p>35px</p>
+</td>
+<td style="vertical-align:top; align:center; text-align:center; padding-right:5px">
+<input type="radio" name="buttonsize" value="50"><br/>
+<a href="http://www.fia.umd.edu" target="_blank"><img src="/images/fia-badge-large.png" alt="FIA" title="The Future of Information Alliance @ UMD" style="width:50px; height:50px" /></a><br/>
+<p>50px</p>
+</td>
+<td style="vertical-align:top; align:center; text-align:center; padding-right:5px">
+<input type="radio" name="buttonsize" value="65"><br/>
+<a href="http://www.fia.umd.edu" target="_blank"><img src="/images/fia-badge-large.png" alt="FIA" title="The Future of Information Alliance @ UMD" style="width:65px; height:65px" /></a><br/>
+<p>65px</p>
+</td>
+</tr>
+</table>
+</li>
+<li>
+<div style="width:350px">
+<p>Copy and paste this HTML into your website whereever you want this button to appear.</p>
+<textarea id="buttonhtml" rows="4"></textarea>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<!--#include virtual="/includes/footer.html"-->
+
+</div>
+
+</body>
+</html>

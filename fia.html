@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Conference Monitor</title>
+<meta name="keywords" content="ttw_12, umd, umcp" />
+
+
+
+<!-- <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26395488-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> -->
+<link rel="stylesheet" type="text/css" href="lib/jquery-ui/css/smoothness/jquery-ui-1.8.16.custom.css" />
+<link rel="stylesheet" type="text/css" href="lib/jquery.uploadify/uploadify.css" />
+<!-- <link rel="stylesheet" type="text/css" href="lib/SpryAssets/SpryMenuBarVertical.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="styles/FIAmain.css?version=201201201054" /> -->
+<!--[if IE]><link rel="stylesheet" type="text/css" href="styles/IEhacks.css" /><![endif]-->
+<!-- <link rel="stylesheet" type="text/css" media="print" href="styles/print.css?version=201201201054" /> -->
+
+<script type="text/javascript" src="lib/jquery-1.6.4.min.js"></script>
+<script text="text/javascript" src="lib/jquery-ui/js/jquery-ui-1.8.16.custom.min-patched.js"></script>
+<!--[if IE]><script type="text/javascript" src="lib/excanvas_r3/excanvas.js" charset="utf-8"></script><![endif]-->
+<script type="text/javascript" src="lib/jquery.bt.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="lib/jquery.uploadify/swfobject.js"></script>
+<script type="text/javascript" src="lib/jquery.uploadify/jquery.uploadify.v2.1.4.js"></script>
+<script type="text/javascript" src="lib/jquery.getUrlParam.js"></script>
+
+<script type="text/javascript" src="lib/SpryAssets/SpryMenuBar.js"></script>
+
+<script type="text/javascript" src="lib/fiadata.js?version=201201201054"></script>
+<script type="text/javascript" src="lib/fia.js?version=201201201054"></script>
+
+<!-- <link type="text/css" rel="stylesheet" href="lib/umd.tweets/tweets.css" /> -->
+<script type="text/javascript" src="lib/jquery.timeago.js"></script>
+<script type="text/javascript" src="http://widgets.twimg.com/j/2/widget.js"></script>
+
+<script type="text/javascript" src="lib/umd.tweets/tweets.js"></script>
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+        initTwitterFeed('twitter-feed1', BASE_HASHTAG, 6000, 200, 540);
+        return false;
+});
+</script>
+</head>
+
+<body>
+<div class="container">
+
+<div class="rightarea">
+<div class="navbar" style="float:left; margin-top:120px"><!--#include virtual="includes/menu.html"--></div>
+
+<div class="content" style="float:left; background:white">
+<a href="index.shtml">TTW @ the University of Maryland</a>
+<div style="margin-top: 25px">
+<div style="width: 100%" cellspacing="0">
+<div style="vertical-align:top">
+<div style="width:95%">
+<h1>#ttw12</h1>
+<a class="helpmarker" title="Read what's up in the TTW community.  Add the hashtag #ttw12 to your tweets to share your thoughts.">&nbsp;?&nbsp;</a></h1>
+<div id="twitter-feed1" class="twitter-feed"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!--#include virtual="/includes/footer.html"-->
+
+</div>
+
+</body>
+</html>

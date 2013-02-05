@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>index</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Robert" />
+		
+		<!-- we need to get the jQuery UI css for the dialog to show -->
+		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.23.custom.css" type="text/css" media="all" />
+		
+		<!-- first load jQuery -->
+        <script language="JavaScript" type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+        <!-- next load jQuery UI (it needs jQuery to be loaded first) -->
+        <script language="JavaScript" type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
+        <script language="JavaScript" type="text/javascript" src="js/myjs.js"></script>
+        <style type="text/css">
+body {
+	font-family: sans-serif;
+}
+        </style>
+	</head>
+	<body>
+		<div class="modal hide" id="loading">
+			<div class="modal-body" align="center">
+				<br/>
+				<br/>
+				<p id="loading_words">
+					Loading...
+				</p>
+				<img src="static/images/loading.gif">
+				<br/>
+				<br/>
+			</div>
+		</div>
+		
+		<h1>I am the page heading!</h1>
+		<button id="show-modal-button">Plz to click me!</button>
+	</body>
+</html>

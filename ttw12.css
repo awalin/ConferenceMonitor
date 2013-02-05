@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+
+.tagcloudlink{	
+ border-radius: 6px;
+ -moz-border-radius: 6px;
+ background-color: #E0F2BE;
+/* float:left;*/
+ color:#003333;
+ padding: 3px 4px;
+ margin: 2px;
+/* opacity: 0.6;*/
+/* border-style: solid;*/
+/* border-color:#588f27;*/
+ float: none;
+}
+
+.gradient {
+  clear:both;
+  font-size: 9px;
+  background-image: -moz-linear-gradient(left, #B8860B, #9ACD32);
+  background-image: -ms-linear-gradient(left, #B8860B, #9ACD32);
+  background-image: -webkit-gradient(linear, left top, right top, from(#B8860B), to( #9ACD32 ));
+  background-image: -webkit-linear-gradient(from(#B8860B), to( #9ACD32 ));
+  background-image: -o-linear-gradient( left ,#B8860B, #9ACD32 );
+  background-image: linear-gradient( left , #B8860B, #9ACD32 );
+  background-repeat: repeat-y;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B8860B, endColorstr=#9ACD32, GradientType=0);
+	
+	
+}
+ 
+
+.table-desc{
+background-image:url('desc.png');
+background-repeat:no-repeat;
+background-position:right center;
+/*background-color: white;*/
+	
+}
+
+.table-asc{
+background-image:url('asc.png');
+background-repeat:no-repeat;
+background-position:right center;
+/*background-color: white;*/
+/*border-color: #8699A4;*/
+	
+}
+
+.ret-area{
+   stroke: #8080ff;
+   stroke-width: 1.5px;
+   fill: #8080ff;
+   opacity: 0.2;
+}
+.subcircle{
+  stroke-width: 1px;	
+}
+.table-none{
+/*	background-color: #8699A4;*/
+/*  background-color: #cac7d8;*/
+  /*background-image: -moz-linear-gradient(left, #cac7d8, #ffffff);
+  background-image: -ms-linear-gradient(left, #cac7d8, #ffffFF);
+  background-image: -webkit-gradient(linear, left top, right top, from(#cac7d8), to(#ffffFF));
+  background-image: -webkit-linear-gradient(from(#cac7d8), to(#ffffFF));
+  background-image: -o-linear-gradient( left ,  #cac7d8, #ffffFF);
+  background-image: linear-gradient( left ,  #cac7d8, #ffffFF);
+  background-repeat: repeat-y;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cac7d8', endColorstr='#ffffFF', GradientType=0);	*/
+}
+
+ body {
+/*        padding-top: 30px;*/
+        padding-bottom: 10px;        
+        background-color: #7c83a6; 
+      }
+.sidebar-nav {
+        padding: 9px 0;
+      }
+
+.link { stroke: #ccc; }
+.nodetext { pointer-events: none; font: 10px sans-serif; }
+
+.names div {
+   font: sans-serif;
+   /*   background-color: steelblue;*/
+   text-align: right;
+   color: black;
+ }
+ 
+.axis {
+  shape-rendering: crispEdges;
+  font-size: 9px;
+}
+
+.x.axis line {
+  stroke: black;
+}
+
+.x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis line, .y.axis path {
+  fill: none;
+  stroke: #000;
+} 
+
+path.line {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+path.area {
+/*  fill: #f8f8f8;*/
+fill: none;
+  stroke: #989898;
+  stroke-width: 2px;
+}
+
+path.sub-area {
+	fill: none;
+	stroke-width: 1.5px;
+/*  stroke: #fff;*/
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+
+.sub-x.axis line {
+  stroke: #fff;
+}
+.sub-x.axis path {
+  display: none;
+}
+.x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://twitter.github.com/bootstrap/examples/fluid.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Conference Monitor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="ttw12.css" rel="stylesheet">   
+   <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script type="text/javascript" src="d3.js"></script>
+<script type="text/javascript" src="d3.csv.js"></script>
+<script type="text/javascript" src="d3.time.js"></script>
+<script type="text/javascript" src="d3.layout.js"></script>
+<script type="text/javascript" src="d3.geom.js"></script>  
+
+  
+<link rel="stylesheet" type="text/css" href="lib/jquery-ui/css/smoothness/jquery-ui-1.8.16.custom.css" />
+<link rel="stylesheet" type="text/css" href="styles/FIAmain.css?version=201201201054" />
+<script type="text/javascript" src="lib/jquery-1.6.4.min.js"></script>
+<script text="text/javascript" src="lib/jquery-ui/js/jquery-ui-1.8.16.custom.min-patched.js"></script>
+<!--[if IE]><script type="text/javascript" src="lib/excanvas_r3/excanvas.js" charset="utf-8"></script><![endif]-->
+<script type="text/javascript" src="lib/jquery.bt.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="lib/jquery.getUrlParam.js"></script>
+<link type="text/css" rel="stylesheet" href="lib/umd.tweets/tweets.css" />
+<script type="text/javascript" src="lib/jquery.timeago.js"></script>
+<!-- widget for the the left side twitter streams  -->
+<script type="text/javascript" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script type="text/javascript" src="lib/umd.tweets/tweets-horizontal.js"></script>
+<!-- <script type="text/javascript" src="lib/umd.tweets/jquery.tagcloud.js"></script> -->
+<!-- <script type="text/javascript" src="visualizations.js"></script> -->
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+   	getSessionData();
+	getAttendees();
+	
+    renderUserTable("#users");	
+	// getUserTweetCounts("#tweet-count","#users-count");
+	// getMentionCounts();
+
+	// // getUrls();
+
+	tag='TtW12';
+    initDBTwitterFeed('#twitter-feed', tag, 100);
+	
+// // // 	
+	var selectVal = $("select option:selected").val();
+	getTweetPace("#pace", selectVal);	
+// // // 	
+	getTagCloud("#tagcloud");
+	
+	
+	d3.select("#filteruser").select("#show-speaker").on("click", function(){
+		// call user table with filtering 
+		console.log("show all clicked ");
+		// d3.select("#filteruser").selectAll("span").style("background-color","#aaaaaa");
+		d3.select("#filteruser").select("#show-speaker").style("background-color","LightBlue");
+		
+		d3.select("#filteruser").select("#show-none").style("background-color","lightgray");
+		d3.select("#filteruser").select("#show-only").style("background-color","lightgray");
+		d3.select("#filteruser").select("#show-all").style("background-color","lightgray");
+		
+		// showAttendees="all";
+		// createTable();
+		// loadTweets("#twitter-feed");
+		
+		// renderUserTable("#users", "all");
+		
+	});
+	
+	d3.select("#filteruser").select("#show-all").on("click", function(){
+		// call user table with filtering 
+		console.log("show all clicked ");
+		// d3.select("#filteruser").selectAll("span").style("background-color","#aaaaaa");
+		d3.select("#filteruser").select("#show-all").style("background-color","LightBlue");
+		
+		d3.select("#filteruser").select("#show-none").style("background-color","lightgray");
+		d3.select("#filteruser").select("#show-only").style("background-color","lightgray");
+		d3.select("#filteruser").select("#show-speaker").style("background-color","lightgray");
+		
+		showAttendees="all";
+		createTable();
+		loadTweets("#twitter-feed");
+		// renderUserTable("#users", "all");
+		
+	});
+	
+	d3.select("#filteruser").select("#show-none").on("click", function(){
+		// call user table with filtering 
+		console.log("show none clicked ");
+		// renderUserTable("#users", "none");
+		// d3.select("#filteruser").selectAll("a").style("background-color","#aaaaaa");
+		d3.select("#filteruser").select("#show-none").style("background-color","lightblue");
+		
+	    d3.select("#filteruser").select("#show-all").style("background-color","lightgray");
+		d3.select("#filteruser").select("#show-only").style("background-color","lightgray");
+		d3.select("#filteruser").select("#show-speaker").style("background-color","lightgray");
+		
+		showAttendees="none";
+		createTable();
+		loadTweets('#twitter-feed');
+		
+	});
+	
+	d3.select("#filteruser").select("#show-only").on("click", function(){
+		// call user table with filtering 
+		console.log("show only clicked ");
+		// renderUserTable("#users", "only");
+		// d3.select("#filteruser").selectAll("a").style("background-color","#aaaaaa");
+		d3.select("#filteruser").select("#show-only").style("background-color","lightblue");
+		
+		d3.select("#filteruser").select("#show-none").style("background-color","lightgray");
+		d3.select("#filteruser").select("#show-all").style("background-color","lightgray");
+		d3.select("#filteruser").select("#show-speaker").style("background-color","lightgray");
+		
+		
+		showAttendees="only";
+		createTable();
+		loadTweets('#twitter-feed');
+		
+	});
+
+	return false;
+});
+</script>
+
+</head>
+
+<body>
+<!--    <div class="navbar"> -->
+      <div class="navbar-inner" style="padding-left: 40px;">       
+          <div style="float:left"><img src = "logo.gif" width="55"/></div> 
+          <div style="padding-left: 20px;">  
+        	 	<h2><a class="brand" style="color: #000000;" href="index.html">Conference Monitor</a></h2>
+       	   		<h5>brought to you by @awalinsopan, Human-Computer Interaction Lab, UMD. </h5>
+          </div>       
+    </div>
+<!--    </div>  -->
+
+ <div class="container-fluid" style="padding-left: -10px;"> 
+      	
+  <div class="span12 row-fluid hero-unit" style="padding-left: -5px;">   
+    
+    <div class="span12">
+     <div style="float:left;width:68%"><h3 style="clear:both;padding-left: 430px;">Tweets about Theorizing the Web, #TtW12 </h3></div> 
+     
+     <div style="float:right;width:25%">Show tweets from 	 	
+		<select NAME="droplist" id="duration">
+			<OPTION VALUE="all">All time</OPTION>
+			<OPTION VALUE="245" SELECTED="SELECTED">All time</OPTION>
+			<OPTION VALUE="30"> Last 30 days</OPTION>
+			<OPTION VALUE="15">Last 15 days</OPTION>
+			<OPTION VALUE="7" >Last 7 days</OPTION>
+			<OPTION VALUE="1">Last 24 hours</OPTION>
+			<OPTION VALUE="session1">Session 1: opening </OPTION>
+			<OPTION VALUE="session2">Session 2: morning </OPTION>
+			<OPTION VALUE="session3">Session 3: afternoon </OPTION>
+			<OPTION VALUE="session4">Session 4: keynote </OPTION>
+			<OPTION VALUE="custom">From graph</OPTION>
+		</select>   
+	</div>	
+<!-- 		</h4>     -->
+     </div> 
+      
+     <div class="span4">
+        			         
+  			<div class="hero-in">				
+<!--               <p> -->
+              	<h4>Popular Hashtags</h4>
+<!--               	</p> -->
+              <div style="background-color:#ffffff;height:200px; overflow-y: auto;">		
+             <div style="float:left;padding-left:20px;"><img src = "legend.png" height="55"/></div>
+             <br/> 
+			 <div id ="tagcloud" style="clear:both">
+					<!-- the tag cloud 					 -->
+				</div>
+			  </div>	    
+				
+				         
+            </div>		
+		
+        	
+        	<div class="hero-in">          			
+<!--           		<form class="well form-search"> -->
+  					<h4>Total &nbsp;<span id="users-count"></span>&nbsp;Participants	          	
+  			<!-- 	<input type="text" class="input-medium search-query">
+  					<button type="submit" class="btn">Search user by name</button> -->
+  			</h4> 	
+
+<!-- 				</form>        			 -->
+          	
+    
+    			   <div id="filteruser"><span style="float:left;padding-left:20px;padding-bottom: 5px;">Filter participants:</span> 
+                  
+					<span style="float:left">
+						<a id="show-all" href="javascript:void(0)" style="background-color: lightblue"> All </a></span> &nbsp;&nbsp;
+					<span style="float:left;">&nbsp;&nbsp;
+						<a id="show-only" href="javascript:void(0)" style="background-color: lightgray"> In-person</a></span> &nbsp;&nbsp;
+					<span style="float:left;">&nbsp;&nbsp;
+						<a id="show-none" href="javascript:void(0)"  style="background-color: lightgray"> Remote</a></span> &nbsp;&nbsp;
+					<span style="float:left;">&nbsp;&nbsp;
+						<a id="show-speaker" href="javascript:void(0)" style="background-color: lightgray">Speaker</a></span>	&nbsp;&nbsp;
+
+				</div>
+				
+          		              
+		<div id ="users" style="max-height:160px; overflow-y: auto;clear:both;">
+			
+		</div>
+			<!-- 	<div style="clear:both">
+				<a id="clearuser" href="javascript:void(0)">Clear</a>
+				</div> -->	
+	
+          	</div>
+          	
+        <div class="hero-in">                    	
+             	
+               <h4 style="clear:both">Highlighted Tweets</h4>
+            <div id="action-feed" style="height:200px; overflow-y: auto;">
+            	
+            </div>
+            
+           </div>
+          	
+      </div>
+
+
+     <div class="span5 hero-in">
+    		            
+        
+        	<!--        			<form class="well form-search"> -->
+<!-- <p>       -->
+	  <h4>Tweet pace</h4>
+<!-- </p> -->
+		<div id ="pace" style="background-color:white;">
+<!-- the time chart goes here -->
+		</div>
+		<div id="feed-desc"> </div>	
+		 <div id="add-time">
+		 	
+		 </div> 
+
+		<div id="analysis" style="height:200px; overflow-y: auto;">
+<!-- 		 the analysis part  -->
+		</div>
+	
+				            
+		<!-- 	<div class="hero-unit">
+						<h4>Mention Network: node size correlates to degree</h4>
+         <div id="network" style="background-color: white">
+                
+         </div>
+         </div> --> 
+         <!--/row-->     
+
+      </div>      
+
+            
+     <div class="span3 hero-in"> 
+         		<div  id="feed">
+<!--         <p>  -->         	
+	<h4>Tweets</h4>
+	
+<!-- </p> -->
+                  	
+                          	                         
+          <div id="twitter-feed" class="twitter-feed" style="height:600px; overflow-y: auto;">            	
+            </div>               	
+            
+            </div>
+    </div>
+        
+      
+        
+</div>
+</div>
+<!--/.fluid-container--> 
+
+
+</body></html>

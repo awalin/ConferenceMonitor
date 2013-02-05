@@ -1,0 +1,70 @@
+# To change this template, choose Tools | Templates
+# author Sopan
+# and open the template in the editor.
+
+if __name__ == "__main__":
+
+    fgin=open("final-users.csv","r");
+    fnew = open("allusers.csv","w");
+#    the groups can be thought of as destinations and users as source
+    nodes = {};    
+    count =0;
+    fgin.readline() # skip the firts line
+    fnew.write("id,user_id,screen_name,name,created_at,followers_count,friends_count,statuses_count\n")
+    
+    for line in fgin:
+        line = line.strip();
+        #line = line.replace("\"","");
+        words= line.split(",") ;                
+        name = words[0]
+        if (not name in nodes.keys()):
+            
+            nodes[name]=count;
+#            toWrite='id:'+str(count)+',"user_id:"'+words[0]+',"screen_name:"'+words[1]+',"name":'+words[2]+',"created_at":'+words[2]+',"followers"'+words[]
+            
+            toWrite=str(count)+","+line;
+            fnew.write( toWrite)        
+            fnew.write("\n");
+            count = count+1;
+       
+           
+    fgin.close();
+    fnew.close();
+#    print nodes.keys()
+
+
+    fgin=open("only-mentions.csv","r");
+    fnew = open("links.csv","w");
+#    the groups can be thought of as destinations and users as source
+    
+
+    fgin.readline() # skip the firts line
+    fnew.write("source,target\n")
+    inlinks={}
+    
+    for line in fgin:
+        line = line.strip();
+        #line = line.replace("\"","");
+        words= line.split(",") ;                
+        nameS = words[0]
+        nameT = words[1]
+ #       print words[0]
+  #      print nodes[nameS]
+        if (nameS in nodes.keys() and nameT in nodes.keys() ):
+            
+            sid=nodes[nameS]
+            tid=nodes[nameT]
+            if( sid not in inlinks.keys()):
+                inlinks[sid]=sid
+            if( tid not in inlinks.keys()):
+                inlinks[tid]=tid
+                        
+            toWrite=str(sid)+","+str(tid);
+            fnew.write( toWrite )        
+            fnew.write("\n");
+       
+           
+    fgin.close();
+    fnew.close();
+
+ 
