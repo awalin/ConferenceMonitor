@@ -1,0 +1,409 @@
+@charset "UTF-8";
+
+h1 .searchtags {
+	text-transform: none;
+}
+
+.content {
+	text-decoration: underline;
+}
+
+.content a:hover, .content a:active, .content a:focus { 
+	color: blue;
+}
+
+.leftbar {
+	float: left;
+	width: 202px;
+	font-family: Verdana, Geneva, sans-serif;
+    font-size: 11px;
+    color: #777;
+    line-height: 16px;
+	padding-right: 15px;
+	vertical-align: top;
+}
+
+.leftbar{
+	color: #777;
+}
+
+.rightarea {
+	float: left;
+	background: #ddd;
+	margin: 0px;
+	padding: 0px;
+}
+
+.content {
+	float: left;
+	width: 642px;
+	padding-left: 15px;
+	/* 3 rules used to set min div height regardless of content */
+	min-height: 675px;
+	height: auto !important;
+	height: 675px;
+	background: #fff;
+}
+
+.contentwithsidebar {
+	width: 375px; 
+	float:left;
+}
+
+.sidebararea {
+	width:245px;
+	float:right;
+	margin:0px;
+	background: #fff;
+}
+
+.contentwithsmallsidebar {
+	width: 410px; 
+	float:left;
+}
+
+.smallsidebararea {
+	width:215px;
+	float:right;
+	margin:0px;
+	background: #fff;
+}
+
+.col1 {
+	width: 310px; 
+	float:left;
+}
+
+.col2 {
+	width:310px;
+	float:right;
+	margin:0px;
+	background: #fff;
+}
+
+
+
+#footer {
+	width: 100%;
+	height: 55px;
+	background-color: #ddd; 
+	margin-top: 20px;
+	padding: 0px;
+}
+
+#footer-inner {
+	position: relative;
+	left: 8px;
+	top: 8px;
+	width: 1008px;
+	height: 52px;
+	background-color: #eee;
+}
+
+#footer-inner p {
+	font-size: 9px;
+	line-height: 11px;
+}
+
+/* ========================================================== */
+/* Profile                                                    */
+/* ========================================================== */
+
+#tabs {
+	font-size: 11px;
+	padding: 0px;
+}
+
+#profile {
+	border: 1px solid #ccc;
+	margin: 0px auto;
+	padding: 15px;
+	text-align: left;
+}
+
+#profile-list {
+	margin: 0px auto;
+	text-align: left;
+}
+
+#profile-pic {
+	width: 50px;
+	height: 50px;
+	color: white;
+	background:url(/images/empty-profile.png) no-repeat center center;
+}
+
+#loading {
+	width: 50px;
+	height: 50px;
+	background:url(/images/loading.gif) no-repeat center center;
+	display: none;
+}
+
+#upload-error {
+	display: none;
+}
+
+#delete-profile-pic {
+	margin: 0px;
+	padding: 1px 2px 1px 2px;
+	float: right;
+	display: none;
+}
+
+#message {
+	font-size: 12px;
+	font-weight: bold;
+	background: #fdefaa;
+	padding: 10px;
+	display: none;
+}
+
+#save-message {
+	margin-top: 5px;
+}
+
+#newprofile-dialog {
+	display: none;
+	font-size: 11px;
+}
+
+.profile {
+	font-size: 11px;
+	/*color: #555; */
+	margin-bottom: 15px;
+}
+
+
+
+/* ========================================================== */
+/* Colors                                                     */
+/* ========================================================== */
+
+.darkgrey {
+	color: #555;
+}
+
+.grey {
+	color: #777;
+}
+
+.grey-bg {
+	background: #dddddd; /* light grey */
+	padding: 8px;
+}
+
+.ltgrey-box {
+	border: 1px solid #ccc;
+	padding: 8px;
+}
+
+
+.green {
+	color: #228b22;
+}
+
+.grey-border {
+	border: 1px solid #bbb;
+	padding: 10px;
+}
+
+.grey-box {
+	background: #f5f5f5;
+	border: 1px solid #bbb;
+	padding: 8px;
+}
+
+.red {
+	color: blue !important;
+}
+
+.red-bg {
+	background: blue;
+	padding: 8px;
+}
+
+.yellow {
+	color: #fdefaa;
+}
+
+.yellow-bg {
+	background: #fdefaa;
+	padding: 8px;
+}
+
+/* ========================================================== */
+/* UI Styles                                                  */
+/* ========================================================== */
+
+form {
+	padding: 0px;
+}
+
+
+
+label, .label {
+	float: left;
+	width: 90px;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 14px;
+	color: #000;
+	margin-left: 0px;
+}
+
+
+
+.checkbox {
+	font-size: 11px;
+}
+
+.control {
+	float: left;
+	width: 300px;
+	margin-bottom: 5px;
+}
+
+.control .help, .narrowcontrol .help {
+	margin-left: 5px;
+}
+
+.narrowcontrol {
+	float: left;
+	width: 260px;
+	margin-bottom: 5px;
+}
+
+/* ========================================================== */
+/* Custom JQuery UI Theme Styles                              */
+/* ========================================================== */
+
+.ui-button-text-only .ui-button-text, .buttons .ui-button-text-only .ui-button-text {
+	font-size: 12px;
+	padding: .2em .8em .3em;
+}
+
+.ui-dialog-titlebar {
+	font-size: 14px;
+}
+
+.ui-widget {
+	font-family: Arial;
+	font-size: 100%;
+}
+
+.ui-widget-overlay { 
+	opacity: .70;
+	filter:Alpha(Opacity=70);
+}
+
+/* ========================================================== */
+/* Twitter Widget (official)                                  */
+/* ========================================================== */
+
+.twtr-hd, .twtr-ft {
+        display: none;
+}
+
+/* ========================================================== */
+/* Miscellaneous                                              */
+/* ========================================================== */
+
+.helpmarker {
+        /* position: absolute; */
+        font-size: 80%;
+        text-decoration: none;
+        color: #be1e2d;
+        background-color: white;
+        border: 1px solid #be1e2d;
+        cursor: default;
+}
+
+a.helpmarker:hover {
+	text-decoration: none !important;
+	background-color: #fdefaa;
+}
+
+.author {
+	font-size: 11px;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.big {
+	font-size: 12px;
+}
+
+.bigbold {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.center {
+	margin: 0px auto;
+	text-align: left;
+}
+
+.center-text {
+	margin: 0px auto;
+	text-align: center;
+}
+
+.error {
+	font-size: 11px;
+	font-style: italic;
+	color: #be1e2d;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+
+.help, .note {
+	font-size: 9px;
+	font-weight: normal;
+	margin: 0px;
+	color: #777;
+}
+
+.help a, .help a:visited, .note a, .note a:visited {
+	color: #777;
+}
+
+.required-field {
+	color: #be1e2d;
+}
+
+.smallbottomspace, .smallspaceafter {
+	margin-bottom: 3px;
+}
+
+.nobottomspace, .nospaceafter {
+	margin-bottom: 0px;
+}
+
+.success {
+	font-size: 11px;
+	font-style: italic;
+	color: #228b22;
+}
+
+.tagcloud {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.tagcloud a, .tagcloud a:visited, a.greylink, a.greylink:visited {
+	color: #777;
+	text-decoration: none;
+}
+
+.tagcloud a:hover, a.greylink:hover {
+	color: #777;
+	text-decoration: underline;
+}
+
+.warning {
+	font-size: 10px;
+	font-style: italic;
+	color: #be1e2d;
+}

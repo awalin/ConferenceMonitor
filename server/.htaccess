@@ -1,0 +1,9 @@
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+<Files *.inc>
+order allow,deny
+deny from all
+</Files>
